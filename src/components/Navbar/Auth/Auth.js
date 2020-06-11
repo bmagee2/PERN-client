@@ -1,6 +1,7 @@
 // IMPORTS
 import React, {useState} from 'react';
 import './Auth.css';
+import APIURL from '../../../helpers/environment';      // import environment.js
 
 // COMPONENTS
 const Auth = (props) => {
