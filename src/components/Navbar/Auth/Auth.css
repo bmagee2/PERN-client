@@ -1,0 +1,33 @@
+input {
+    border: none;
+    border-radius: 7px;
+    background-color: lightcoral;
+    height: 40px;
+    width: 300px;
+    text-indent: 20px;   /* text in input field is indented */
+    margin-top: 1em;
+    margin-bottom: 1em;
+    font-size: 18px;
+}
+
+/* when you're typing in input fields */
+input:focus {
+    outline: none;
+    background-color: lightpink;
+    color: whitesmoke;
+}
+
+button {
+    margin-top: 1em;
+    border: none;
+    border-radius: 7px;
+    height: 50px;
+    width: 200px;
+    background-color: wheat;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+button:focus {
+    outline: none;
+}
