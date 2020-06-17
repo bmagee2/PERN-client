@@ -17,24 +17,32 @@ const useStyles = makeStyles((theme) => ({
 const AddMonologue = (props) => {
 
     const classes = useStyles();
-  const [value, setValue] = React.useState('Controlled');
+    const [value, setValue] = React.useState('Controlled');
 
   const handleChange = (event) => {
     setValue(event.target.value);
   };
 
-const [description, setDescription] = useState('');
-    const [definition, setDefinition] = useState('');
-    const [result, setResult] = useState('');
+    const [playTitle, setPlayTitle] = useState('');
+    const [characterName, setCharacterName] = useState('');
+    const [category, setCategory] = useState('');
+    const [genre, setGenre] = useState('');
+    const [sceneSynopsis, setSceneSynopsis] = useState('');
+    const [monologue, setMonologue] = useState('');
+    const [notes, setNotes] = useState('');
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        fetch('http://localhost:4000/log', {
+        fetch('http://localhost:4000/monologue/post', {
             method: 'POST',
-            body: JSON.stringify({log: {
-                description: description,
-                definition: definition,
-                result: result
+            body: JSON.stringify({monologue: {
+                playTitle: playTitle,
+                characterName: characterName,
+                category: category,
+                genre: genre,
+                sceneSynopsis: sceneSynopsis,
+                monologue: monologue,
+                notes: notes
             }}),
             headers: new Headers({
                 'Content-Type': 'application/json',
@@ -44,9 +52,13 @@ const [description, setDescription] = useState('');
         .then((res) => res.json())
         .then((logData) => {
             console.log(logData);
-            setDescription('');
-            setDefinition('');
-            setResult('')
+            setPlayTitle('');
+            setCharacterName('');
+            setCategory('');
+            setGenre('');
+            setSceneSynopsis('');
+            setMonologue('');
+            setNotes('');
             props.fetchWorkouts();
         })
     }
@@ -56,10 +68,6 @@ const [description, setDescription] = useState('');
         <div className={classes.root} noValidate autoComplete="off">
         <h3>Add a Monologue</h3>
         <Form onSubmit={handleSubmit}>
-            <FormGroup>
-                <Label htmlFor="description">character</Label>
-                <Input name="description" value={description} onChange={(e) => setDescription(e.target.value)}/>
-            </FormGroup>
             
             <TextField
                     id="outlined-multiline-static"
@@ -79,7 +87,7 @@ const [description, setDescription] = useState('');
                 />
                 <FormGroup>
                 <Label htmlFor="definition">Category</Label>
-                <Input name="definition" value={definition} onChange={(e) => setDefinition(e.target.value)}>
+                <Input name="definition" value={category} onChange={(e) => setCategory(e.target.value)}>
                     <option value="Classical">Classical</option>
                     <option value="Contemporary">Contemporary</option>
                     <option value="Shakespearean">Shakespearean</option>

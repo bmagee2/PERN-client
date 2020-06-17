@@ -4,7 +4,9 @@ import {Container, Row, Col} from 'reactstrap';
 import APIURL from '../../helpers/environment';      // import environment.js
 import './Auth.css';
 
-import Home from './Home';
+import Login from './Login/Login';
+import Signup from './Signup/Signup';
+
 
 // COMPONENTS
 const Auth = (props) => {
@@ -50,7 +52,10 @@ const Auth = (props) => {
         <Container>
             <Row>
                 <Col md="6">
-                    <Home />
+                <h1>The Mono-Log</h1>
+                <p>store your monologues</p>
+                <p>for actors</p>
+                
                 </Col>
                 <Col md="6">         
                     <form>

@@ -1,7 +1,7 @@
 input {
-    border: none;
-    border-radius: 7px;
-    background-color: lightcoral;
+    border: 3px solid black;
+    border-radius: 2px;
+    background-color: whitesmoke;
     height: 40px;
     width: 300px;
     text-indent: 20px;   /* text in input field is indented */
@@ -12,18 +12,18 @@ input {
 
 /* when you're typing in input fields */
 input:focus {
-    outline: none;
-    background-color: lightpink;
+    /* outline: 2px solid black; */
+    background-color: lightgrey;
     color: whitesmoke;
 }
 
 button {
     margin-top: 1em;
-    border: none;
-    border-radius: 7px;
+    border: 2px solid black;
+    border-radius: 2px;
     height: 50px;
     width: 200px;
-    background-color: wheat;
+    background-color: rgb(255, 255, 0);
     cursor: pointer;
     font-size: 18px;
 }

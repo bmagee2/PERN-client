@@ -18,7 +18,7 @@ const MyMonologues = (props) => {
 
 
     const monologueMapper = () => {
-        // return props.workouts.map((workout, index) => {
+        // return props.monologues.map((workout, index) => {
             return(
                 <tr>
                     <th>character</th>
@@ -26,7 +26,7 @@ const MyMonologues = (props) => {
                     <td>category</td>
                     <td>genre</td>
                     <td>
-                        <Button variant="outlined" >View</Button>                        
+                        <Button variant="outlined" >View Monologue</Button>                        
                     </td>
                 </tr>
             )

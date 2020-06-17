@@ -7,8 +7,8 @@ import {
     Switch
   } from 'react-router-dom';
 
-import MyMonologues from '../MyMonologues/MyMonologues';
-import AddMonologue from '../AddMonologue/AddMonologue';
+import MyMonologues from '../Monologues/MyMonologues/MyMonologues';
+import AddMonologue from '../Monologues/AddMonologue/AddMonologue';
 
 import {
     Collapse,

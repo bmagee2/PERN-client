@@ -4,8 +4,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
 
 import Auth from './components/Auth/Auth';
-import Sitebar from './components/Sitebar/Sitebar';
-import MyMonologues from './components/MyMonologues/MyMonologues';
+import MonoLog from './components/MonoLog/MonoLog';
 
 function App() {
 
@@ -28,19 +27,20 @@ function App() {
     setSessionToken('');
   }
 
-  const protectedViews = () => {
+  const viewToggle = () => {
     return(sessionToken === localStorage.getItem('token') ? 
-    <Router><Sitebar token={sessionToken} /></Router> : <Auth updateToken={updateToken} /> )
+    <MonoLog token={sessionToken} /> : <Auth updateToken={updateToken} /> )
+    // <Sitebar token={sessionToken} /> : <Auth updateToken={updateToken} /> )
+    // <Router><Sitebar token={sessionToken} /></Router> : <Auth updateToken={updateToken} /> )
+
   }
 
 return (
-  <div>
-    {/* <Auth /> */}
-    {/* <MyMonologues />  */}
-    <Router>
-      <Sitebar clickLogout={clearToken}/>
-    </Router>
-    {/* {protectedViews()} */}
+  <div className="App">
+    {/* <Router>
+      <MonoLog clickLogout={clearToken}/>
+    </Router> */}
+    {viewToggle()}
   </div>
 );
 }
