@@ -29,15 +29,18 @@ function App() {
   }
 
   const protectedViews = () => {
-    return(sessionToken === localStorage.getItem('token') ? <MyMonologues token={sessionToken} /> : <Auth updateToken={updateToken} /> )
+    return(sessionToken === localStorage.getItem('token') ? 
+    <Router><Sitebar token={sessionToken} /></Router> : <Auth updateToken={updateToken} /> )
   }
 
 return (
   <div>
     {/* <Auth /> */}
     {/* <MyMonologues />  */}
-    {/* <Sitebar clickLogout={clearToken}/> */}
-    {protectedViews()}
+    <Router>
+      <Sitebar clickLogout={clearToken}/>
+    </Router>
+    {/* {protectedViews()} */}
   </div>
 );
 }

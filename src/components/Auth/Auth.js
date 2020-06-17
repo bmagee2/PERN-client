@@ -9,8 +9,8 @@ import Home from './Home';
 // COMPONENTS
 const Auth = (props) => {
 
-    // const [firstName, setFirstName] = useState(''); 
-    // const [lastName, setLastName] = useState('');
+    const [firstName, setFirstName] = useState(''); 
+    const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [login, setLogin] = useState(true);
@@ -28,8 +28,8 @@ const Auth = (props) => {
 
         setEmail('');
         setPassword('');
-        // setFirstName('');
-        // setLastName('');
+        setFirstName('');
+        setLastName('');
     }
 
     const signupFields = () => !login ? 
@@ -37,11 +37,11 @@ const Auth = (props) => {
             <div>
                 <label htmlFor="firstName">First Name:</label>
                 <br/>
-                {/* <input type="text" id="firstName" value={firstName} onChange={(e) => setFirstName(e.target.value)} /> */}
+                <input type="text" id="firstName" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
                 <br/>
                 <label htmlFor="lastName">Last Name:</label>
                 <br/>
-                {/* <input type="text" id="lastName" value={lastName} onChange={(e) => setLastName(e.target.value)}/> */}
+                <input type="text" id="lastName" value={lastName} onChange={(e) => setLastName(e.target.value)}/>
             </div>
         ) : null    
 
