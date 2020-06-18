@@ -41,7 +41,7 @@ const Auth = (props) => {
             <div>
                 <Signup setFirstName={setFirstName} setLastName={setLastName} setEmail={setEmail} setPassword={setPassword} firstName={firstName} lastName={lastName} email={email} password={password}/>
             </div>
-        ) : <Login />  
+        ) : <Login setEmail={setEmail} setPassword={setPassword} email={email} password={password}/>  
 
 
     //HANDLESUBMIT
@@ -60,8 +60,8 @@ const Auth = (props) => {
             email: email,
             password: password
         }
-        console.log(bodyObj);
-        
+        // console.log(bodyObj);
+
         fetch(url, {
             method: 'POST',
             body: JSON.stringify({user: bodyObj}),
