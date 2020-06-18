@@ -60,7 +60,8 @@ const Auth = (props) => {
             email: email,
             password: password
         }
-
+        console.log(bodyObj);
+        
         fetch(url, {
             method: 'POST',
             body: JSON.stringify({user: bodyObj}),
