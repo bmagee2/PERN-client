@@ -1,8 +1,7 @@
 import React, {useState} from 'react';
 import {Table, Button} from 'reactstrap';
 import MonologueModal from './MonologueModal';
-import APIURL from '../../helpers/environment';      // import environment.js
-
+import APIURL from '../../../../helpers/environment';
 
 // import { makeStyles } from '@material-ui/core/styles';
 // import Button from '@material-ui/core/Button';

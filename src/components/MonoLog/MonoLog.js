@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import {Container, Row, Col} from 'reactstrap';
 
-import APIURL from '../../../helpers/environment';  
+import APIURL from '../../helpers/environment';
 
 import Sitebar from './Sitebar/Sitebar';
 import MyMonologues from '../MonoLog/Monologues/MyMonologues/MyMonologues';

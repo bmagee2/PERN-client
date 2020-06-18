@@ -1,7 +1,7 @@
 // IMPORTS
 import React, {useState} from 'react';
 import {Container, Row, Col, Form} from 'reactstrap';
-import APIURL from '../../helpers/environment';      // import environment.js
+import APIURL from '../../helpers/environment';
 import './Auth.css';
 
 import Login from './Login/Login';
