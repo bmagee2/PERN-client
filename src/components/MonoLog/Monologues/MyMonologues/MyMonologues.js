@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {Table, Button} from 'reactstrap';
 import MonologueModal from './MonologueModal';
-// import APIURL from '../../helpers/environment';      // import environment.js
+import APIURL from '../../helpers/environment';      // import environment.js
 
 
 // import { makeStyles } from '@material-ui/core/styles';
@@ -24,7 +24,9 @@ const MyMonologues = (props) => {
 
     // DELETE
     const deleteMonologue = (monologue) => {
-        fetch(`http://localhost:4000/monologue/${monologue.id}`, {
+        // fetch(`http://localhost:4000/monologue/${monologue.id}`
+        // fetch(`${APIURL}/monologue/${monologue.id}`
+        fetch(`${APIURL}/monologue/${monologue.id}`, {
             method: 'DELETE',
             headers: new Headers({
                 'Content-Type': 'application/json',

@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody} from 'reactstrap';
-// import APIURL from '../../helpers/environment';      // import environment.js
+import APIURL from '../../helpers/environment';      // import environment.js
 
 const EditMonologue = (props)=>{
     console.log(props)
@@ -18,7 +18,9 @@ const EditMonologue = (props)=>{
     const monologueEdit = (e,monologue)=>{
         e.preventDefault();
         const id = props.monologueToUpdate.id;
-        fetch(`http://localhost:4000/monologue/${id}`,{
+        //fetch(`http://localhost:4000/monologue/${id}`
+        // fetch(`${APIURL}/monologue/${id}`
+        fetch(`${APIURL}/monologue/${id}`,{
             method: "PUT",
             body: JSON.stringify({
                 playTitle: editTitle,

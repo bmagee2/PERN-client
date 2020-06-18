@@ -33,7 +33,9 @@ const AddMonologue = (props) => {
     // POST
     const handleSubmit = (e) => {
         e.preventDefault();
-        fetch('http://localhost:4000/monologue/post', {
+        // fetch('http://localhost:4000/monologue/post'
+        //fetch(`${APIURL}/monologue/post`
+        fetch(`${APIURL}/monologue/post`, {
             method: 'POST',
             body: JSON.stringify({monologue: {
                 playTitle: playTitle,
@@ -63,13 +65,6 @@ const AddMonologue = (props) => {
         })
     }
 
-    // const changeCategory = (event) => {
-    //     setCategory(event.target.value);
-    // };
-
-    // const changeGenre = (event) => {
-    //     setGenre(event.target.value);
-    // };
 
     return(
 

@@ -47,8 +47,9 @@ const Auth = (props) => {
     //HANDLESUBMIT
     const handleSubmit = (event) => {
         event.preventDefault();
-
-        const url = login ? 'http://localhost:4000/user/login': 'http://localhost:4000/user/signup';
+                            //'http://localhost:4000/user/login' 'http://localhost:4000/user/signup'
+                            //  `${APIURL}/user/login`      `${APIURL}/user/signup`
+        const url = login ? `${APIURL}/user/login` : `${APIURL}/user/signup`;
 
         const bodyObj = login ? {
             email: email,
@@ -87,10 +88,6 @@ const Auth = (props) => {
                     <Form onSubmit={handleSubmit}>
                         <h1>{title()}</h1>
                         {signupFields()} 
-                        {/* <Signup />
-                        <br/>
-                        <Login />
-                        <br/> */}
                         <button type="submit">Submit Information</button>
                         <button onClick={loginToggle}>Login/Signup</button>
                     </Form>       

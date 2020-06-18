@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import {Container, Row, Col} from 'reactstrap';
 
+import APIURL from '../../../helpers/environment';  
 
 import Sitebar from './Sitebar/Sitebar';
 import MyMonologues from '../MonoLog/Monologues/MyMonologues/MyMonologues';
@@ -15,7 +16,9 @@ const MonoLog = (props) => {
     
     // GET
     const fetchMonologues = () => {
-      fetch('http://localhost:4000/monologue/get', {
+      //'http://localhost:4000/monologue/get'
+      //fetch(`${APIURL}/monologue/get`
+      fetch(`${APIURL}/monologue/get`, {
             method: 'GET',
             headers: new Headers ({
                 'Content-Type': 'application/json',
