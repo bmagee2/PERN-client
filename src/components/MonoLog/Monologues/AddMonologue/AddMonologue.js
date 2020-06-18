@@ -3,25 +3,24 @@ import {Button, Form, FormGroup, Label, Input} from 'reactstrap';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 
-const useStyles = makeStyles((theme) => ({
-    root: {
-      '& .MuiTextField-root': {
-        margin: theme.spacing(1),
-        width: 700,
-        display: 'flex',
-        flexWrap: 'wrap'
-      },
-    },
-  }));
+import APIURL from '../../../../helpers/environment';
+
+// const useStyles = makeStyles((theme) => ({
+//     root: {
+//       '& .MuiTextField-root': {
+//         margin: theme.spacing(1),
+//         width: 700,
+//         display: 'flex',
+//         flexWrap: 'wrap'
+//       },
+//     },
+//   }));
 
 const AddMonologue = (props) => {
 
-    const classes = useStyles();
-    const [value, setValue] = React.useState('Controlled');
+    // const classes = useStyles();
+    // const [value, setValue] = React.useState('Controlled');
 
-  const handleChange = (event) => {
-    setValue(event.target.value);
-  };
 
     const [playTitle, setPlayTitle] = useState('');
     const [characterName, setCharacterName] = useState('');
@@ -31,6 +30,7 @@ const AddMonologue = (props) => {
     const [monologue, setMonologue] = useState('');
     const [notes, setNotes] = useState('');
 
+    // POST
     const handleSubmit = (e) => {
         e.preventDefault();
         fetch('http://localhost:4000/monologue/post', {
@@ -59,150 +59,68 @@ const AddMonologue = (props) => {
             setSceneSynopsis('');
             setMonologue('');
             setNotes('');
-            props.fetchWorkouts();
+            props.fetchMonologues();
         })
     }
 
+    // const changeCategory = (event) => {
+    //     setCategory(event.target.value);
+    // };
+
+    // const changeGenre = (event) => {
+    //     setGenre(event.target.value);
+    // };
+
     return(
 
-        <div className={classes.root} noValidate autoComplete="off">
-        <h3>Add a Monologue</h3>
-        <Form onSubmit={handleSubmit}>
-            
-            <TextField
-                    id="outlined-multiline-static"
-                    label="Character's Name"
-                    multiline
-                    rows={1}
-                    defaultValue="Add Character"
-                    variant="outlined"
-                />
-                <TextField
-                    id="outlined-multiline-static"
-                    label="Title"
-                    multiline
-                    rows={1}
-                    defaultValue="Add Title"
-                    variant="outlined"
-                />
+        // <div className={classes.root} noValidate autoComplete="off">
+        <>    
+            <h3>Add a Monologue</h3>
+            <Form onSubmit={handleSubmit}>
                 <FormGroup>
-                <Label htmlFor="definition">Category</Label>
-                <Input name="definition" value={category} onChange={(e) => setCategory(e.target.value)}>
-                    <option value="Classical">Classical</option>
-                    <option value="Contemporary">Contemporary</option>
-                    <option value="Shakespearean">Shakespearean</option>
-                </Input>    
-            </FormGroup>
-                <TextField
-                    id="outlined-multiline-static"
-                    label="Scene"
-                    multiline
-                    rows={3}
-                    defaultValue="Add Scene Synopsis"
-                    variant="outlined"
-                />
-                <TextField
-                    id="outlined-multiline-static"
-                    label="Monologue"
-                    multiline
-                    rows={6}
-                    defaultValue="Add Monologue"
-                    variant="outlined"
-                />
-                <TextField
-                    id="outlined-multiline-static"
-                    label="Notes"
-                    multiline
-                    rows={3}
-                    defaultValue="Add Notes"
-                    variant="outlined"
-                />
-           
-            <Button type="submit">Add Monologue</Button>
-        </Form>
-    </div>
+                    <Label htmlFor="characterName">Character Name:</Label>
+                    <Input name="characterName" value={characterName} onChange={(e) => setCharacterName(e.target.value)} />
+                </FormGroup>
+                <FormGroup>
+                    <Label htmlFor="playTitle">Title of Play:</Label>
+                    <Input name="playTitle" value={playTitle} onChange={(e) => setPlayTitle(e.target.value)} />
+                </FormGroup>
+                <FormGroup>
+                    <Label htmlFor="category">Category:</Label>
+                    <Input name="category" type="select" value={category} onChange={(e) => setCategory(e.target.value)}>
+                        <option></option>
+                        <option value='Classical'>Classical</option> 
+                        <option value='Contemporary'>Contemporary</option>
+                        <option value='Shakespearean'>Shakespearean</option>
+                    </Input>
+                </FormGroup>
+                <FormGroup>
+                <Label htmlFor="genre">Genre:</Label>
+                    <Input name="genre" type="select" value={genre} onChange={(e) => setGenre(e.target.value)}>
+                        <option></option>
+                        <option value="Drama">Drama</option>
+                        <option value="Comedy">Comedy</option>
+                    </Input>
+                </FormGroup>
+                <FormGroup>
+                    <Label htmlFor="sceneSynopsis">Scene Synopsis:</Label>
+                    <Input name="sceneSynopsis" value={sceneSynopsis} onChange={(e) => setSceneSynopsis(e.target.value)} />
+                </FormGroup>
+                <FormGroup>
+                    <Label htmlFor="monologue">Monologue:</Label>
+                    <Input name="monologue" value={monologue} onChange={(e) => setMonologue(e.target.value)} />
+                </FormGroup>
+                <FormGroup>
+                    <Label htmlFor="notes">Notes:</Label>
+                    <Input name="notes" value={notes} onChange={(e) => setNotes(e.target.value)} />
+                </FormGroup>
+                <br />
+                <Button type="submit">Add Monologue</Button>
+            </Form>
+        </>
 )
 }
-//         <form className={classes.root} noValidate autoComplete="off">
-//       <div>
-//         <TextField
-//           id="standard-multiline-flexible"
-//           label="Multiline"
-//           multiline
-//           rowsMax={4}
-//           value={value}
-//           onChange={handleChange}
-//         />
-//         <TextField
-//           id="standard-textarea"
-//           label="Multiline Placeholder"
-//           placeholder="Placeholder"
-//           multiline
-//         />
-//         <TextField
-//           id="standard-multiline-static"
-//           label="Multiline"
-//           multiline
-//           rows={4}
-//           defaultValue="Default Value"
-//         />
-//       </div>
-//       <div>
-//         <TextField
-//           id="filled-multiline-flexible"
-//           label="Multiline"
-//           multiline
-//           rowsMax={4}
-//           value={value}
-//           onChange={handleChange}
-//           variant="filled"
-//         />
-//         <TextField
-//           id="filled-textarea"
-//           label="Multiline Placeholder"
-//           placeholder="Placeholder"
-//           multiline
-//           variant="filled"
-//         />
-//         <TextField
-//           id="filled-multiline-static"
-//           label="Multiline"
-//           multiline
-//           rows={4}
-//           defaultValue="Default Value"
-//           variant="filled"
-//         />
-//       </div>
-//       <div>
-//         <TextField
-//           id="outlined-multiline-flexible"
-//           label="Multiline"
-//           multiline
-//           rowsMax={4}
-//           value={value}
-//           onChange={handleChange}
-//           variant="outlined"
-//         />
-//         <TextField
-//           id="outlined-textarea"
-//           label="Multiline Placeholder"
-//           placeholder="Placeholder"
-//           multiline
-//           variant="outlined"
-//         />
-//         <TextField
-//           id="outlined-multiline-static"
-//           label="Multiline"
-//           multiline
-//           rows={4}
-//           defaultValue="Default Value"
-//           variant="outlined"
-//         />
-//       </div>
-//     </form>
-//   );
-// }
-
-
 
 export default AddMonologue;
+
+

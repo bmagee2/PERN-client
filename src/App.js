@@ -25,14 +25,12 @@ function App() {
   const clearToken = () => {
     localStorage.clear();
     setSessionToken('');
+    // setSessionToken(undefined);
   }
 
-  const viewToggle = () => {
+  const viewToggleLogin = () => {
     return(sessionToken === localStorage.getItem('token') ? 
-    <MonoLog token={sessionToken} /> : <Auth updateToken={updateToken} /> )
-    // <Sitebar token={sessionToken} /> : <Auth updateToken={updateToken} /> )
-    // <Router><Sitebar token={sessionToken} /></Router> : <Auth updateToken={updateToken} /> )
-
+    <MonoLog token={sessionToken} clearToken={clearToken} /> : <Auth updateToken={updateToken} /> )
   }
 
 return (
@@ -40,7 +38,7 @@ return (
     {/* <Router>
       <MonoLog clickLogout={clearToken}/>
     </Router> */}
-    {viewToggle()}
+    {viewToggleLogin()}
   </div>
 );
 }

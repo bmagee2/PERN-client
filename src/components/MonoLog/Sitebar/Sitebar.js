@@ -29,9 +29,13 @@ import {
     },
   }));
   
+//   const clearToken = () => {
+//     localStorage.clear();
+//     // setSessionToken('');
+//   }
 
 const Sitebar = (props) => {
-
+    console.log(props)
     const classes = useStyles();
 
     return(
@@ -39,20 +43,20 @@ const Sitebar = (props) => {
             <Navbar>
                 <Nav className="sitebar">
                     <NavItem>
-                        <Button variant="outlined"><Link to="/mymonologues"><h4>my monologues</h4></Link></Button>
+                        {/* <Button variant="outlined"><Link to="/mymonologues">my monologues</Link></Button> */}
                     </NavItem>
                     <NavItem>
-                        <Button variant="outlined"><Link to="/addmonologue"><h4>add monologue</h4></Link></Button>
+                        <Button variant="outlined"><Link to="/addmonologue">add monologue</Link></Button>
                     </NavItem>
                     <NavItem>
-                        <Button variant="outlined"><h4>logout</h4></Button>
+                        <Button variant="outlined" onClick={props.clearToken}>logout</Button>
                     </NavItem>
                 </Nav>    
             </Navbar>
             <div className="sitebar-route">
                 <Switch>
-                    <Route exact path="/mymonologues"><MyMonologues /></Route>
-                    <Route exact path="/addmonologue"><AddMonologue /></Route>
+                    {/* <Route exact path="/mymonologues"><MyMonologues /></Route> */}
+                    <Route exact path="/addmonologue"><AddMonologue token={props.token} fetchMonologues={props.fetchMonologues} /></Route>
                 </Switch>
             </div>
         </div>

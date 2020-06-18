@@ -1,6 +1,6 @@
 // IMPORTS
 import React, {useState} from 'react';
-import {Container, Row, Col} from 'reactstrap';
+import {Container, Row, Col, Form} from 'reactstrap';
 import APIURL from '../../helpers/environment';      // import environment.js
 import './Auth.css';
 
@@ -34,18 +34,45 @@ const Auth = (props) => {
         setLastName('');
     }
 
+    
+
     const signupFields = () => !login ? 
         (
             <div>
-                <label htmlFor="firstName">First Name:</label>
-                <br/>
-                <input type="text" id="firstName" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
-                <br/>
-                <label htmlFor="lastName">Last Name:</label>
-                <br/>
-                <input type="text" id="lastName" value={lastName} onChange={(e) => setLastName(e.target.value)}/>
+                <Signup setFirstName={setFirstName} setLastName={setLastName} setEmail={setEmail} setPassword={setPassword} firstName={firstName} lastName={lastName} email={email} password={password}/>
             </div>
-        ) : null    
+        ) : <Login />  
+
+
+    //HANDLESUBMIT
+    const handleSubmit = (event) => {
+        event.preventDefault();
+
+        const url = login ? 'http://localhost:4000/user/login': 'http://localhost:4000/user/signup';
+
+        const bodyObj = login ? {
+            email: email,
+            password: password
+        } : {
+            firstName: firstName,
+            lastName: lastName,
+            email: email,
+            password: password
+        }
+
+        fetch(url, {
+            method: 'POST',
+            body: JSON.stringify({user: bodyObj}),
+            headers: new Headers({
+                'Content-Type': 'application/json'
+            })
+        })
+        .then(
+            (response) => response.json()
+        ).then((data) => {
+            props.updateToken(data.sessionToken)
+        })
+    }
 
 
     return(
@@ -54,23 +81,19 @@ const Auth = (props) => {
                 <Col md="6">
                 <h1>The Mono-Log</h1>
                 <p>store your monologues</p>
-                <p>for actors</p>
-                
+
                 </Col>
-                <Col md="6">         
-                    <form>
+                <Col md="6">  
+                    <Form onSubmit={handleSubmit}>
                         <h1>{title()}</h1>
                         {signupFields()} 
-                        <label htmlFor="email">Email:</label> 
+                        {/* <Signup />
                         <br/>
-                        <input type="text" id="email" value={email} onChange={(e) => setEmail(e.target.value)} />
-                        <br/>
-                        <label htmlFor="password">Password:</label>
-                        <br/>
-                        <input type="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-                        <br/>
+                        <Login />
+                        <br/> */}
+                        <button type="submit">Submit Information</button>
                         <button onClick={loginToggle}>Login/Signup</button>
-                    </form>
+                    </Form>       
                 </Col>
             </Row>
         </Container>
