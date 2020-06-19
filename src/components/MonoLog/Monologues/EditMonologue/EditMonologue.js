@@ -1,6 +1,29 @@
 import React, {useState} from 'react';
-import {Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody} from 'reactstrap';
+import {Form, FormGroup, Input, Modal, ModalHeader, ModalBody} from 'reactstrap';
 import APIURL from '../../../../helpers/environment';
+
+
+import styled from 'styled-components'
+
+const Button = styled.button`
+    margin-top: 1em;
+    border: 2px solid black;
+    border-radius: 2px;
+    height: 50px;
+    width: 200px;
+    background-color: rgb(255, 255, 0);
+    cursor: pointer;
+    font-size: 20px;
+    margin-left: 60px;
+    font-family: MOMCAKE-BOLD;
+`;
+
+const Label = styled.label`
+    font-size: 20px;
+    font-weight: bold;
+    font-family: Colombia-Regular;
+    margin-bottom: 2px;
+`;
 
 const EditMonologue = (props)=>{
     console.log(props)

@@ -1,9 +1,40 @@
 import React, {useState, useEffect} from 'react';
-import {Button, Form, FormGroup, Label, Input} from 'reactstrap';
+import {FormGroup, Input} from 'reactstrap';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 
 import APIURL from '../../../../helpers/environment';
+
+import styled from 'styled-components'
+
+const Button = styled.button`
+    margin-top: 1em;
+    border: 2px solid black;
+    border-radius: 2px;
+    height: 50px;
+    width: 200px;
+    background-color: rgb(255, 255, 0);
+    cursor: pointer;
+    font-size: 20px;
+    margin-left: 40%;
+    font-family: MOMCAKE-BOLD;
+`;
+
+const Form = styled.form`
+    width: 80%;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    margin-left: 60px;
+    margin-right: 40px;
+`;
+
+const Label = styled.label`
+    font-size: 25px;
+    font-family: Colombia-Regular;
+    margin-bottom: 2px;
+`;
+
+
 
 // const useStyles = makeStyles((theme) => ({
 //     root: {
@@ -70,8 +101,8 @@ const AddMonologue = (props) => {
 
         // <div className={classes.root} noValidate autoComplete="off">
         <>    
-            <h3>Add a Monologue</h3>
             <Form onSubmit={handleSubmit}>
+            <h3>Add a Monologue</h3>
                 <FormGroup>
                     <Label htmlFor="characterName">Character Name:</Label>
                     <Input name="characterName" value={characterName} onChange={(e) => setCharacterName(e.target.value)} />
@@ -99,18 +130,18 @@ const AddMonologue = (props) => {
                 </FormGroup>
                 <FormGroup>
                     <Label htmlFor="sceneSynopsis">Scene Synopsis:</Label>
-                    <Input name="sceneSynopsis" value={sceneSynopsis} onChange={(e) => setSceneSynopsis(e.target.value)} />
+                    <Input size="lg" name="sceneSynopsis" value={sceneSynopsis} onChange={(e) => setSceneSynopsis(e.target.value)} />
                 </FormGroup>
                 <FormGroup>
                     <Label htmlFor="monologue">Monologue:</Label>
-                    <Input name="monologue" value={monologue} onChange={(e) => setMonologue(e.target.value)} />
+                    <Input size="lg" name="monologue" value={monologue} onChange={(e) => setMonologue(e.target.value)} />
                 </FormGroup>
                 <FormGroup>
                     <Label htmlFor="notes">Notes:</Label>
                     <Input name="notes" value={notes} onChange={(e) => setNotes(e.target.value)} />
                 </FormGroup>
                 <br />
-                <Button type="submit">Add Monologue</Button>
+                <Button type="submit">Add Monologue!</Button>
             </Form>
         </>
 )

@@ -1,6 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
+// import Button from '@material-ui/core/Button';
 import {
     Route,
     Link,
@@ -16,10 +16,29 @@ import {
     NavbarToggler,
     NavbarBrand,
     Nav,
-    NavItem,
+    // NavItem,
     NavLink,
     // Button
   } from 'reactstrap';
+
+import styled from 'styled-components'
+
+  const Button = styled.button`
+    margin-top: 1em;
+    border: 2px solid black;
+    border-radius: 2px;
+    height: 50px;
+    width: 200px;
+    background-color: rgb(255, 255, 0);
+    cursor: pointer;
+    font-size: 20px;
+    font-family: MOMCAKE-BOLD;
+`;
+
+const NavItem = styled.ul`
+  marging-left: 5px;
+  margin-right: 20px;
+`;
  
   const useStyles = makeStyles((theme) => ({
     root: {
@@ -45,11 +64,11 @@ const Sitebar = (props) => {
                     <NavItem>
                         {/* <Button variant="outlined"><Link to="/mymonologues">my monologues</Link></Button> */}
                     </NavItem>
-                    <NavItem>
-                        <Button variant="outlined"><Link to="/addmonologue">add monologue</Link></Button>
+                    <NavItem className="add-button">
+                        <Button variant="outlined"><Link to="/addmonologue">Add Monologue</Link></Button>
                     </NavItem>
                     <NavItem>
-                        <Button variant="outlined" onClick={props.clearToken}>logout</Button>
+                        <Button id="logoutNavButton" variant="outlined" onClick={props.clearToken}>Logout</Button>
                     </NavItem>
                 </Nav>    
             </Navbar>

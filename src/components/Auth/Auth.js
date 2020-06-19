@@ -6,6 +6,30 @@ import './Auth.css';
 
 import Login from './Login/Login';
 import Signup from './Signup/Signup';
+import MonoLog from '../../assests/monoLog.png';
+
+import styled from 'styled-components'
+
+const Button = styled.button`
+    margin-top: 1em;
+    border: 2px solid black;
+    border-radius: 2px;
+    height: 50px;
+    width: 200px;
+    background-color: rgb(255, 255, 0);
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 10px;
+    font-family: Colombia-Regular;
+`;
+
+const Resize = styled.img`
+    width: 35vw;
+    height: auto;
+    display: block;
+    margin: auto;
+`;
 
 
 // COMPONENTS
@@ -78,23 +102,23 @@ const Auth = (props) => {
 
 
     return(
-        <Container>
+        <div>
             <Row>
                 <Col md="6">
                 <h1>The Mono-Log</h1>
-                <p>store your monologues</p>
+                <Resize src={MonoLog} />
 
                 </Col>
                 <Col md="6">  
                     <Form onSubmit={handleSubmit}>
                         <h1>{title()}</h1>
                         {signupFields()} 
-                        <button type="submit">Submit Information</button>
-                        <button onClick={loginToggle}>Login/Signup</button>
+                        <Button type="submit">Submit</Button>
+                        <Button onClick={loginToggle}>Login or Signup</Button>
                     </Form>       
                 </Col>
             </Row>
-        </Container>
+        </div>
     )
 }
 

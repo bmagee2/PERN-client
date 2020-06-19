@@ -1,4 +1,4 @@
-/* .navButton {
+button {
     margin-top: 1em;
     border: 2px solid black;
     border-radius: 2px;
@@ -7,5 +7,13 @@
     background-color: rgb(255, 255, 0);
     cursor: pointer;
     font-size: 18px;
-} */
+}
+
+  
+th {
+    font-family: Colombia-Regular;
+    font-size: 22px;
+}
+
+
 

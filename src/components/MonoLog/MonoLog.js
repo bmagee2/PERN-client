@@ -53,7 +53,7 @@ const MonoLog = (props) => {
 
       return(
           <div>
-              <h1>the mono-log</h1>
+              <h1 id="monologTitle">The Mono-log</h1>
               <Router>
                 <Sitebar clearToken = {props.clearToken} token={props.token} fetchMonologues={fetchMonologues}/>
                 {/* <Sitebar clickLogout={clearToken}/> */}

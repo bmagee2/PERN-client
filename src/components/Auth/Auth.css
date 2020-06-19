@@ -31,3 +31,9 @@ button {
 button:focus {
     outline: none;
 }
+
+div {
+    margin-top: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
