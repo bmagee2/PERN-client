@@ -59,7 +59,7 @@ const MyMonologues = (props) => {
                     <th>{monologue.characterName}</th>
                     <td>{monologue.playTitle}</td>
                     {/* <button onClick={toggle}>See more Information</button> */}
-                    <MonologueModal toggle={toggle} modal={modal} monologue={monologue.monologue} sceneSynopsis={monologue.sceneSynopsis}/>
+                    <MonologueModal toggle={toggle} modal={modal} monologue={monologue.monologue} />
                     <td>{monologue.category}</td>
                     <td>{monologue.genre}</td>
                     <td>
@@ -83,7 +83,7 @@ const MyMonologues = (props) => {
     return(
 
         <>
-        <h3>My Monolgues</h3>
+        <h3>My Monologues</h3>
         <hr/>
         <Table >
             <thead>

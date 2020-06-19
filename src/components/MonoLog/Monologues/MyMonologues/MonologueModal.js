@@ -34,7 +34,6 @@ const Button = styled.button`
         <ModalHeader toggle={props.toggle}>Monologue</ModalHeader>
         <ModalBody>
           {props.monologue}
-          {props.sceneSynopsis}
         </ModalBody>
       </Modal>
     </div>
